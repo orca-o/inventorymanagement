@@ -39,7 +39,7 @@ public class CustomerController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login";
+        return "admin-dashboard";
     }
 
     // Handle login form submission

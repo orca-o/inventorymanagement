@@ -30,6 +30,4 @@ public class Vendor {
 
     private String address;
 
-    @OneToMany(mappedBy = "vendor")
-    private ArrayList<PurchaseOrder> purchaseOrders;
 }

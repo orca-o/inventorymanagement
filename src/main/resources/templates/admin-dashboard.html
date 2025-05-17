@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+</head>
+<body>
+<div class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <a href="/vendors" onclick="loadPage()">Vendors</a>
+    <a href="#" onclick="loadPage()">Sales</a>
+    <a href="#" onclick="loadPage()">Customers</a>
+</div>
+
+<div class="content" id="mainContent">
+    <h3>Welcome to the Admin Dashboard</h3>
+    <p>Select an option from the sidebar to view details.</p>
+</div>
+
+<script th:src="@{/js/admin-dashboard.js}"></script>
+</body>
+</html>
