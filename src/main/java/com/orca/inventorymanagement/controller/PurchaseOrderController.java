@@ -28,7 +28,7 @@ public class PurchaseOrderController {
     @Autowired
     private PurchaseOrderService purchaseOrderService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<PurchaseOrder> createOrder(@RequestBody PurchaseOrder po) {
         return new ResponseEntity<>(purchaseOrderService.createPurchaseOrder(po), HttpStatus.CREATED);
     }

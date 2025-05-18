@@ -25,7 +25,7 @@ public class VendorViewController {
     }
 
     // Show Add Vendor Form
-    @GetMapping("/add")
+    @GetMapping("/addvendor")
     public String showAddVendorForm(Model model){
         return "add-vendor";
     }
