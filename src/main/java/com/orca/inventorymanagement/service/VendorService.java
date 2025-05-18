@@ -1,6 +1,7 @@
 package com.orca.inventorymanagement.service;
 
 import com.orca.inventorymanagement.entity.Vendor;
+import com.orca.inventorymanagement.exceptions.CustomerNotFoundException;
 import com.orca.inventorymanagement.exceptions.VendorAlreadyExistsException;
 import com.orca.inventorymanagement.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,19 @@ public class VendorService {
 
     public List<Vendor> getAllVendors() {
         return vendorRepository.findAll();
+    }
+
+    public Vendor updateVendor(Vendor vendor) {
+        if (!vendorRepository.existsById(vendor.getId())) {
+            throw new VendorAlreadyExistsException("Vendor with id " + vendor.getId() + " didnt exists.");
+        }
+        return vendorRepository.save(vendor);
+    }
+
+    public void deleteVendor(int id) {
+        if (!vendorRepository.existsById(id)) {
+            throw new CustomerNotFoundException("Customer with id " + id + " not found.");
+        }
+        vendorRepository.deleteById(id);
     }
 }

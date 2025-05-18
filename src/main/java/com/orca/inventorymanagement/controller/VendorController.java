@@ -30,4 +30,17 @@ public class VendorController {
         List<Vendor> vendors = vendorService.getAllVendors();
         return ResponseEntity.ok(vendors);
     }
+
+    @PostMapping("/update")
+    public ResponseEntity<String> updateVendor(@RequestBody Vendor vendor) {
+        Vendor savedVendor = vendorService.updateVendor(vendor);
+        return ResponseEntity.ok("Vendor updated successfully!");
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteVendor(@PathVariable int id) {
+        vendorService.deleteVendor(id);
+        return ResponseEntity.ok("Vendor deleted successfully!");
+    }
+
 }

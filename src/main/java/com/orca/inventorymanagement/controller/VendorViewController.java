@@ -30,4 +30,9 @@ public class VendorViewController {
         return "add-vendor";
     }
 
+    @GetMapping("/update")
+    public String showUpdateVendorForm(Model model){
+        return "update-vendor";
+    }
+
 }

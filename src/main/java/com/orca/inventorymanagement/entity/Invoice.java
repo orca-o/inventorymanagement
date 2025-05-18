@@ -6,28 +6,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-public class Vendor {
+public class Invoice {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String vendorName;
+    private LocalDate date;
+    private Double amount;
+    private String status = "unpaid";
 
-    @Column(nullable = false)
-    private String contactNumber;
-
-    @Column(nullable = false)
-    private String email;
-
-    private String address;
-
+    private String invoiceNumber; // ✅ Ensure this is set when creating invoice
 }
