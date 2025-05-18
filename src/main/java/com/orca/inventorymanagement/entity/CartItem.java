@@ -1,27 +1,38 @@
 package com.orca.inventorymanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+
+@Entity
 @Getter
 @Setter
-@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class CartItem {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
+    private String name;
+    private int quantity;
+    private double price;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-    private int quantity;
+    @JoinColumn(name = "cart_id")
+    @JsonBackReference // Breaks the recursive reference on the child side
+    private Cart cart;
+
+    // Getters and Setters
 }
